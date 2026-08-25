@@ -43,12 +43,8 @@ Each delivery request stores:
 - **Sync:** Simulated by re-reading the shared data file — a real deployment would use a webhook or polling API.
 - **Scan for confirmation:** Simulated with a confirmation code entered by the rider, in place of an actual barcode/QR scan.
 
-These simplifications are documented in full in `TRADEOFFS.md`, along with what we'd do differently with more time.
 
 ## Team
 
 Built by Pravien, Kibet, Ann, Morris, and Topster as part of the PLP "Reflex: The Readiness Sprint" assignment.
 
-## Status
-
-🚧 In active development — Day 1 build in progress.
