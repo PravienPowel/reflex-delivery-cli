@@ -4,14 +4,17 @@
 // instead of an actual barcode/QR scan.
 // Example: reflex confirm --id 1 --code 1234
 //
-// TRADE-OFF (talk about this in the panel):
-// A CLI has no camera to scan a real barcode/QR code. We simulate the
-// same outcome (proof the item was confirmed at handover) using a typed
-// confirmation code. With more time/a mobile app, this would be a real
-// camera-based QR scan.
+// How the simulation works:
+// 1. When the rider marks a delivery "Picked Up", status.js generates a
+//    random 4-digit code and stores it on the record.
+// 2. The customer keeps that code. At handover, the rider runs `confirm`
+//    and types it back in - the CLI equivalent of scanning.
+// 3. A match marks the delivery Delivered; anything else is rejected.
 //
-// NOTE (Ann): Right now any code is accepted - feel free to add real
-// code generation/validation logic if you want to make this more robust.
+// TRADE-OFF (Ann owns this - see TRADEOFFS-ann.md):
+// A CLI has no camera, so we simulate the *outcome* of a scan (proof of
+// handover) with a shared secret instead of the *mechanism* (optical QR).
+// With more time this becomes a mobile app with a real QR scanner.
 
 const store = require("../data/store");
 
@@ -31,8 +34,27 @@ function run(args) {
     return;
   }
 
+  if (delivery.status === "Delivered") {
+    console.log(`Delivery #${id} is already confirmed as Delivered.`);
+    return;
+  }
+
+  if (!delivery.confirmation_code) {
+    console.log(
+      `Delivery #${id} has no confirmation code yet. It must be marked "Picked Up" first.`
+    );
+    return;
+  }
+
+  if (String(code).trim() !== delivery.confirmation_code) {
+    console.log(`Confirmation code does not match for delivery #${id}. Not marking as delivered.`);
+    return;
+  }
+
   delivery.status = "Delivered";
-  delivery.updated_at = new Date().toISOString();
+  delivery.delivered_at = new Date().toISOString();
+  delivery.updated_at = delivery.delivered_at;
+  delivery.confirmed_by_code = true;
 
   store.writeAll(deliveries);
   console.log(`Delivery #${id} confirmed with code ${code}. Marked as Delivered.`);

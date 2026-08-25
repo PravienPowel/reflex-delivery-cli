@@ -9,28 +9,35 @@
 const store = require("../data/store");
 
 function run(args) {
-  const { rider } = args;
+  const { rider, status } = args;
 
   if (!rider) {
-    console.log("Usage: reflex mydeliveries --rider <riderName>");
+    console.log('Usage: reflex mydeliveries --rider <riderName> [--status "Picked Up"]');
     return;
   }
 
   const deliveries = store.readAll();
-  const mine = deliveries.filter(
+  let mine = deliveries.filter(
     (d) => d.assigned_rider && d.assigned_rider.toLowerCase() === rider.toLowerCase()
   );
 
+  if (status && status !== true) {
+    mine = mine.filter((d) => d.status.toLowerCase() === String(status).toLowerCase());
+  }
+
   if (mine.length === 0) {
-    console.log(`No deliveries currently assigned to ${rider}.`);
+    const filterNote = status && status !== true ? ` with status "${status}"` : "";
+    console.log(`No deliveries currently assigned to ${rider}${filterNote}.`);
     return;
   }
 
-  mine.forEach((d) => {
-    console.log(
-      `#${d.id} | ${d.customer_name} | ${d.address} | Item: ${d.item} | Status: ${d.status}`
-    );
-  });
+  mine
+    .sort((a, b) => a.id - b.id)
+    .forEach((d) => {
+      console.log(
+        `#${d.id} | ${d.customer_name} | ${d.address} | Item: ${d.item} | Status: ${d.status}`
+      );
+    });
 }
 
 module.exports = { run };

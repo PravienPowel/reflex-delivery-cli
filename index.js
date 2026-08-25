@@ -24,7 +24,7 @@ function printHelp() {
   console.log('  log            --customer --phone --address --item');
   console.log('  list           [--status]');
   console.log('  assign         --id --rider');
-  console.log('  mydeliveries   --rider');
+  console.log('  mydeliveries   --rider [--status]');
   console.log('  status         --id --update');
   console.log('  sync');
   console.log('  confirm        --id --code');

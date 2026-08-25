@@ -6,6 +6,17 @@ const fs = require("fs");
 const path = require("path");
 
 const DATA_FILE = path.join(__dirname, "deliveries.json");
+const META_FILE = path.join(__dirname, "meta.json");
+
+// Small key/value side-file for things like the last sync timestamp.
+function readMeta() {
+  if (!fs.existsSync(META_FILE)) return {};
+  return JSON.parse(fs.readFileSync(META_FILE, "utf-8"));
+}
+
+function writeMeta(meta) {
+  fs.writeFileSync(META_FILE, JSON.stringify(meta, null, 2));
+}
 
 // Make sure the data file exists before we try to read it
 function ensureDataFile() {
@@ -34,4 +45,6 @@ module.exports = {
   readAll,
   writeAll,
   getNextId,
+  readMeta,
+  writeMeta,
 };
