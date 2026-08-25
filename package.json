@@ -1,0 +1,14 @@
+{
+  "name": "reflex-delivery-cli",
+  "version": "1.0.0",
+  "description": "CLI tool for small Kenyan retailers to log, assign, and track deliveries.",
+  "main": "index.js",
+  "bin": {
+    "reflex": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "PLP Team - Pravien, Kibet, Ann, Morris, Topster",
+  "license": "MIT"
+}
