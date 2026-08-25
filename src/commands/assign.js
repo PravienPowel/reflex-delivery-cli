@@ -1,8 +1,3 @@
-// assign.js
-// Used by: Dispatcher
-// Assigns an existing delivery request to a rider.
-// Example: reflex assign --id 1 --rider "Kibet"
-
 const store = require("../data/store");
 
 function run(args) {
@@ -17,8 +12,12 @@ function run(args) {
   const delivery = deliveries.find((d) => d.id === parseInt(id, 10));
 
   if (!delivery) {
-    console.log(`No delivery found with id ${id}.`);
+    console.log(`No delivery found with id ${id}`);
     return;
+  }
+
+  if (delivery.assigned_rider) {
+    console.log(`Warning: Delivery #${id} is already assigned to ${delivery.assigned_rider} (current status: ${delivery.status}). Reassigning will overwrite this.`);
   }
 
   delivery.assigned_rider = rider;
@@ -26,7 +25,7 @@ function run(args) {
   delivery.updated_at = new Date().toISOString();
 
   store.writeAll(deliveries);
-  console.log(`Delivery #${id} assigned to ${rider}.`);
+  console.log(`Delivery ${id} assigned to ${rider}.`);
 }
 
 module.exports = { run };
