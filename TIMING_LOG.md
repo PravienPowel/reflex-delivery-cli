@@ -103,5 +103,7 @@ Unclear / Confusing Points Identified
 3\. Confirmation code explanation (Trade-offs/Architecture): Needed clarification on how the code is generated and how to describe it as customer-verification (not just a rider-typed code) without implying a feature that doesn't exist.
 
 
-Key Takeaway for Day 4
+Key Takeaway for Day 4:
+
+
 Dry Run 1 ran significantly over the 10-minute target (21 minutes). After identifying the live demo commands and verbose sections in Architecture and Trade-offs as the main time sinks, we trimmed content and ran a second dry run, which came in at 12 minutes — much closer to target and a clear improvement.
