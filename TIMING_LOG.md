@@ -14,7 +14,7 @@ Total time:21 minutes (started 0:25, ended 21:40)
 
 | Section | Presenter | Start | End |
 
-|---|---|---|---|
+
 
 | Title | Topster | 0:25:60 | 0:46:00 |
 
@@ -58,7 +58,7 @@ Total time: 12 minutes (8:14pm–8:26pm)
 
 | Section | Presenter | Start | End |
 
-|---|---|---|---|
+
 
 | Title \& Problem | Topster | 8:14pm | 8:16pm |
 
