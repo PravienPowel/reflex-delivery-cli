@@ -14,7 +14,7 @@ Result: On target — did not run over.
 
 
 
-This is a significant improvement from both dry runs (Dry Run 1: 21 min, Dry Run 2: 27 min). Content was trimmed from Architecture, Trade-offs, and the live demo ahead of this session, which brought the presentation in line with the required time.
+This is a significant improvement from both dry runs (Dry Run 1: 21 min, Dry Run 2: 12 min). Content was trimmed from Architecture, Trade-offs, and the live demo ahead of this session, which brought the presentation in line with the required time.
 
 
 
@@ -46,5 +46,4 @@ None identified as a hard blocker - the session went smoothly overall. The only 
 
 
 
-Session completed successfully, on time, with no major gaps in defense. Team is in strong shape heading into final submission. Recommend adding a one-line clarification distinguishing "MVP" from "production-ready" to the Roadmap slide before Friday.
-
+Session completed successfully, on time, with no major gaps in defense.
