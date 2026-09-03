@@ -60,19 +60,19 @@ Total time: 12 minutes (8:14pm–8:26pm)
 
 
 
-| Title \& Problem | Topster | 8:14pm | 8:16pm |
+| Title \& Problem | Topster | 8:14pm | 8:15pm |
 
-| Solution | Topster | 8:16pm | 8:17pm |
+| Solution | Topster | 8:15pm | 8:16pm |
 
-| How Reflex Works | Topster | 8:17pm | 8:18pm |
+| How Reflex Works | Topster | 8:16pm | 8:17pm |
 
-| Architecture | Pravien | 8:18pm | 8:20pm |
+| Architecture | Pravien | 8:17pm | 8:19pm |
 
-| Live Demo | Morris | 8:20pm | 8:24pm |
+| Live Demo | Morris | 8:19pm | 8:23pm |
 
-| Trade-offs | Kibet | 8:24pm | 8:25pm |
+| Trade-offs | Kibet | 8:23pm | 8:24pm |
 
-| Trade-offs | Ann | 8:25pm | 8:25pm |
+| Trade-offs | Ann | 8:24pm | 8:25pm |
 
 | Takeaway / Roadmap / Conclusion | Topster | 8:25pm | 8:26pm |
 
